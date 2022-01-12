@@ -2,7 +2,6 @@
 
 import 'package:flutter/material.dart';
 import 'package:url_launcher/link.dart';
-import 'package:url_launcher/url_launcher.dart';
 import 'dart:js' as js;
 import 'package:flutter_web/constants.dart' as Constants;
 
@@ -19,16 +18,16 @@ class FeedbacksPage extends StatelessWidget {
               ),
             ),
           ),
-          Positioned.fill(
-            top: 80,
-            left: 10,
-            right: 10,
-            child: Image.asset(
-              "assets/images/feedback.png",
-              fit: BoxFit.fitWidth,
-              alignment: Alignment.topLeft,
-            ),
-          ),
+          // Positioned.fill(
+          //   top: 80,
+          //   left: 10,
+          //   right: 10,
+          //   child: Image.asset(
+          //     "assets/images/feedback.png",
+          //     fit: BoxFit.fitWidth,
+          //     alignment: Alignment.topLeft,
+          //   ),
+          // ),
           Positioned.fill(
             child: Image.asset(
               "assets/images/feedback_bg.png",
@@ -49,9 +48,21 @@ class FeedbacksPage extends StatelessWidget {
                       return GestureDetector(
                         onTap: followLink,
                         child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
+                          mainAxisAlignment: MainAxisAlignment.start,
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Container(
+                                    padding: EdgeInsets.all(8),
+                                    child: Image.asset(
+                                      "assets/images/feedback.png",
+                                      width: 0.8 *
+                                          MediaQuery.of(context).size.width,
+                                    ))
+                              ],
+                            ),
                             Text(
                               "Your feedback matters to us!",
                               style: TextStyle(
