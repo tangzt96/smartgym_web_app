@@ -19,7 +19,7 @@ List<Person> persons = [
   Person(
       name: "Caleb Lee",
       profileImage: 'assets/images/smartgym-caleb-lee.png',
-      title: "Software Engineer - Backend Developer"),
+      title: "Software Engineer "),
   Person(
       name: "Kelvin Ang",
       profileImage: 'assets/images/smartgym-kelvin-ang.png',
@@ -173,45 +173,6 @@ class AboutPage extends StatelessWidget {
                     SizedBox(
                       height: 10,
                     ),
-                    // Align(
-                    //   alignment: Alignment.center,
-                    //   child: Card(
-                    //     shape: RoundedRectangleBorder(
-                    //       side: BorderSide(color: Colors.black12, width: 1),
-                    //       borderRadius: BorderRadius.circular(10),
-                    //     ),
-                    //     child: Row(
-                    //       // ignore: prefer_const_literals_to_create_immutables
-                    //       children: [
-                    //         Padding(
-                    //           padding: const EdgeInsets.all(8.0),
-                    //           child: Image.asset(
-                    //               "assets/images/smartgym-tan-chin-hiong.png"),
-                    //         ),
-                    //         Flexible(
-                    //           child: Column(
-                    //             mainAxisAlignment: MainAxisAlignment.start,
-                    //             crossAxisAlignment: CrossAxisAlignment.start,
-                    //             // ignore: prefer_const_literals_to_create_immutables
-                    //             children: [
-                    //               Text(
-                    //                   "Tan Chin Hiong, Team Lead, System Architecturer",
-                    //                   style: TextStyle(
-                    //                       fontSize: 18,
-                    //                       fontWeight: FontWeight.bold)),
-                    //               Text(
-                    //                 "Chin Hiong is a team lead and systems architect at GovTech. Chin Hiong graduated from the National University of Singapore with a PhD in Electrical and Computer Engineering. He has over 15 years of experience in systems engineering and Research and Development (R&D), including the fields of neural networks, computer vision and evolutionary algorithms. Chin Hiong is passionate about harnessing technology to improve people's lives and inspiring the next generation of engineers.",
-                    //                 style: TextStyle(fontSize: 14, height: 1.5),
-                    //               ),
-                    //             ],
-                    //           ),
-                    //         ),
-                    //       ],
-                    //     ),
-                    //     margin:
-                    //         EdgeInsets.only(left: 20.0, right: 20.0, top: 5.0),
-                    //   ),
-                    // )
                     SizedBox(height: 10),
                     const Text(
                       "Team Members",

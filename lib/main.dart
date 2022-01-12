@@ -1,14 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_web/pages/qr_content_page.dart';
 import 'Navigation_drawer_widget.dart';
-import 'package:hive_flutter/hive_flutter.dart';
 
 void main() async {
-  WidgetsFlutterBinding.ensureInitialized();
-
-  // Hive.registerAdapter(ActivesgIdAdapter());
-  // await Hive.openBox<ActivesgId>('activesgId');
-
   runApp(myApp());
 }
 

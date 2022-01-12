@@ -3,6 +3,7 @@ import 'package:flutter_web/main.dart';
 import 'package:flutter_web/pages/about.dart';
 import 'package:flutter_web/pages/events.dart';
 import 'package:flutter_web/pages/feedback.dart';
+import 'package:flutter_web/pages/qr_content_page.dart';
 
 class NavigationDrawerWidget extends StatelessWidget {
   final padding = EdgeInsets.symmetric(horizontal: 20);

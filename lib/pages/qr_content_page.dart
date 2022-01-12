@@ -72,7 +72,7 @@ class _QrPageState2 extends State<QrPage2> {
     var combinedList = [...templist, ..._options].toSet().toList();
     box.put('user', combinedList);
     _options = combinedList;
-    print(combinedList);
+    //print(combinedList);
   }
 
   //Convert ActiveSG id into JWT tokenish form
@@ -80,14 +80,14 @@ class _QrPageState2 extends State<QrPage2> {
     DateTime now = DateTime.now();
     ActiveSgQR activeSgData = ActiveSgQR(id: activeid, datetime: now);
     var activeIdJson = activeSgData.toJson2();
-    print(activeIdJson);
+    //print(activeIdJson);
     Codec<String, String> stringToBase64 = utf8.fuse(base64);
     String encoded = stringToBase64.encode(activeIdJson);
     String header = 'ACTIVESGV1|.';
     String footer = '.';
     String claim = header + encoded + footer;
     //String claim = header + activeIdJson;
-    print(claim);
+    //print(claim);
     return claim;
   }
 
