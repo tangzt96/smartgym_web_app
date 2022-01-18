@@ -206,6 +206,8 @@ class _QrPageState2 extends State<QrPage2> {
                         onPressed: () {
                           pickImage().then((value) {
                             setState(() {
+                              _textEditingController.text =
+                                  activeid; //sets the value once user updates.
                               activeIdField = "Your Active ID: " + activeid;
                             });
                           });
