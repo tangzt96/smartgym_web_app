@@ -105,9 +105,18 @@ class _QrPageState2 extends State<QrPage2> {
         var bitmap = BinaryBitmap(HybridBinarizer(source));
         var reader = QRCodeReader();
         var result = reader.decode(bitmap);
-        activeid = decode(result.text);
-        print(activeid);
-        return activeid;
+        var decodeList =
+            decode(result.text); //gets the active id from decode result
+        activeid = decodeList[0];
+        var withinTime = decodeList[1];
+        // print(activeid);
+        // print(withinTime);
+        if (withinTime == true) {
+          // print("qr code within time");
+          return activeid;
+        } else {
+          return "expired";
+        }
       }
     } else {
       print("No qr code detected");
@@ -116,13 +125,28 @@ class _QrPageState2 extends State<QrPage2> {
     return "no qr detected";
   }
 
-  static String decode(String str) {
+  static List decode(String str) {
     var tempstring = str.split(".")[1]; //gets middle portion of jwt
     tempstring = utf8.decode(
         base64.decode(base64.normalize(tempstring))); //convert to string
     var json = jsonDecode(tempstring);
+    // print("----DECODE------");
+    // print(json);
     var id = json["id"];
-    return id;
+    var time = json["timestamp"]; //timestamp here is in GMT +8
+    DateTime qrcodetime = DateTime.parse(time);
+    DateTime now = DateTime.now();
+
+    // print("qr code local time: $time");
+    // print("processed qr code time: $qrcodetime");
+    qrcodetime = qrcodetime.toLocal(); //converts to local time
+    // print('processed qr code time local: $qrcodetime');
+    // print("local time now: $now");
+    var now_minus1 = now.subtract(Duration(minutes: 59));
+    // print("1 hour before: $now_minus1");
+    print("is within 1 hour?:");
+    print(qrcodetime.isAfter(now_minus1));
+    return [id, qrcodetime.isAfter(now_minus1)];
   }
 
   void _showDialog() {
@@ -137,6 +161,29 @@ class _QrPageState2 extends State<QrPage2> {
             width: 0.7 * MediaQuery.of(context).size.width,
             height: 1.4 * MediaQuery.of(context).size.width,
           ),
+          actions: <Widget>[
+            // usually buttons at the bottom of the dialog
+            ElevatedButton.icon(
+              icon: Icon(Icons.close),
+              label: Text("Close"),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            ),
+          ],
+        );
+      },
+    );
+  }
+
+  void _expiredQrDialog() {
+    // flutter defined function
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: Text("Your QR code has expired!☹️"),
+          content: Text('Please upload a recent ActiveSG QR'),
           actions: <Widget>[
             // usually buttons at the bottom of the dialog
             ElevatedButton.icon(
@@ -205,11 +252,15 @@ class _QrPageState2 extends State<QrPage2> {
                         icon: Icon(Icons.image),
                         onPressed: () {
                           pickImage().then((value) {
-                            setState(() {
-                              _textEditingController.text =
-                                  activeid; //sets the value once user updates.
-                              activeIdField = "Your Active ID: " + activeid;
-                            });
+                            if (value == 'expired') {
+                              _expiredQrDialog();
+                            } else {
+                              setState(() {
+                                _textEditingController.text =
+                                    activeid; //sets the value once user updates.
+                                activeIdField = "Your Active ID: " + value;
+                              });
+                            }
                           });
                         },
                         style: ElevatedButton.styleFrom(

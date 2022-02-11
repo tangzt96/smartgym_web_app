@@ -1,17 +1,19 @@
-# flutter_web
+# smartgym_web_app 🌐
 
-A new Flutter project.
+Smartgym web app to enhance user's login!
 
-## Getting Started
+## Preview
 
-This project is a starting point for a Flutter application.
+![Architecture](page_preview.png)
 
-A few resources to get you started if this is your first Flutter project:
+## Build the docker image
+Use docker build the container image
+```
+ docker build -f Dockerfile -t smartgym_web_app .
+```
+## After Success building image
+Run the docker image with localhost 1200 port. You can change to any other port just replace it.
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
-"# flutter_sgw" 
+```
+ docker run -d -p 1200:80 --name container_name smartgym_web_app
+```

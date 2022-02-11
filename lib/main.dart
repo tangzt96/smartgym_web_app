@@ -36,3 +36,5 @@ class _MainPageState extends State<MainPage> {
         body: QrPage2(), //sets QR page as mainpage
       );
 }
+
+//flutter run -d chrome --web-port=1234 to run on fixed port
