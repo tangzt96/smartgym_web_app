@@ -157,9 +157,9 @@ class _QrPageState2 extends State<QrPage2> {
         return AlertDialog(
           title: Text("How to obtain your ActiveSG ID"),
           content: Image.asset(
-            "assets/images/active_steps.png",
-            width: 0.7 * MediaQuery.of(context).size.width,
-            height: 1.4 * MediaQuery.of(context).size.width,
+            "assets/images/active_steps2.png",
+            width: 0.6 * MediaQuery.of(context).size.width,
+            height: 0.8 * MediaQuery.of(context).size.width,
           ),
           actions: <Widget>[
             // usually buttons at the bottom of the dialog

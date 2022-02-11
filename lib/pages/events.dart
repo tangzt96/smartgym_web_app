@@ -38,7 +38,22 @@ class EventsPage extends StatelessWidget {
                       height: 10,
                     ),
                     const Text(
-                      "Jurong East ActiveSG Gym",
+                      "Currently there are no active events 😢",
+                      style: TextStyle(fontSize: 15, height: 1.5),
+                    ),
+                    SizedBox(
+                      height: 10,
+                    ),
+                    const Text(
+                      "Past Events",
+                      style:
+                          TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                    ),
+                    SizedBox(
+                      height: 10,
+                    ),
+                    const Text(
+                      "Jurong East ActiveSG Gym (06 DEC 2021 - 10 JAN 2022)",
                       style: TextStyle(fontSize: 15, height: 1.5),
                     ),
                     SizedBox(height: 20),
