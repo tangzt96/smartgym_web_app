@@ -4,6 +4,7 @@ import 'package:flutter_web/pages/about.dart';
 import 'package:flutter_web/pages/events.dart';
 import 'package:flutter_web/pages/feedback.dart';
 import 'package:flutter_web/pages/qr_content_page.dart';
+import 'package:flutter_web/pages/test.dart';
 
 class NavigationDrawerWidget extends StatelessWidget {
   final padding = EdgeInsets.symmetric(horizontal: 20);
@@ -39,8 +40,14 @@ class NavigationDrawerWidget extends StatelessWidget {
             onClicked: () => selectedItem(context, 3),
           ),
           const SizedBox(height: 20),
-          const Divider(color: Colors.white70),
-          const SizedBox(height: 20)
+          buildMenuItem(
+            text: 'Test Page',
+            icon: Icons.feedback,
+            onClicked: () => selectedItem(context, 4),
+          ),
+          const SizedBox(height: 20),
+          // const Divider(color: Colors.white70),
+          // const SizedBox(height: 20)
         ]),
       ),
     );
@@ -82,6 +89,11 @@ class NavigationDrawerWidget extends StatelessWidget {
       case 3:
         Navigator.of(context).push(MaterialPageRoute(
           builder: (context) => FeedbacksPage(),
+        ));
+        break;
+      case 4:
+        Navigator.of(context).push(MaterialPageRoute(
+          builder: (context) => TestPage(),
         ));
         break;
     }

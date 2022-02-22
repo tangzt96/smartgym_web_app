@@ -11,6 +11,7 @@ import 'package:flutter_web/models/activesgqr.dart';
 import 'package:hive/hive.dart';
 import 'package:zxing2/qrcode.dart';
 import 'package:image/image.dart' as img;
+import 'test.dart';
 
 late String selectedId = "";
 List<String> _options = <String>[];
@@ -369,6 +370,7 @@ class _QrPageState2 extends State<QrPage2> {
                                       showQr = false;
                                       print('invalid QR');
                                     }
+                                    activeid = _textEditingController.text;
                                   });
                                   Timer(Duration(milliseconds: 150), () {
                                     _scrollDown();
@@ -377,7 +379,7 @@ class _QrPageState2 extends State<QrPage2> {
                                 child: const Text('Generate QR code'),
                                 style: ElevatedButton.styleFrom(
                                     primary: Colors.orange.shade300,
-                                    shape: const StadiumBorder()))
+                                    shape: const StadiumBorder())),
                           ],
                         ),
                         showQr

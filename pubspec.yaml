@@ -46,6 +46,7 @@ dependencies:
   zxing2: ^0.1.0
   image: ^3.1.0
   url_launcher: ^6.0.18
+  socket_io_client: ^1.0.2
 
 dev_dependencies:
   flutter_test:
